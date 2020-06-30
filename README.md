@@ -23,6 +23,14 @@ npm install --save react-solid-sidebar
 yarn add react-solid-sidebar
 ```
 
+## Props
+
+|name|type|description|required|
+|:---:|:---:|:----:|:----:|
+|title|`strinig`|title in the menu|required|
+|listItems| `ListMenuItem[]` | menu list |required|
+|actionButton|`JSX.Element`|right or bottom button |required|
+
 ## Usage
 
 ```tsx
