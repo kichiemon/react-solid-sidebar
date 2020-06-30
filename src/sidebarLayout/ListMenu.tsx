@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import { Box, ListItemText } from '@material-ui/core'
-import { withRouter, RouteComponentProps } from 'react-router'
 import { useMediaQuery } from 'react-responsive'
 import { ListMenuItem } from '../index'
 
@@ -72,9 +71,7 @@ const useStyles = makeStyles({
   }
 })
 
-interface RoutingProps extends RouteComponentProps {}
-
-interface Props extends RoutingProps {
+interface Props {
   title: string
   listItems: ListMenuItem[]
   actionButton: JSX.Element
@@ -82,13 +79,12 @@ interface Props extends RoutingProps {
 
 const ListMenu: React.FunctionComponent<Props> = (props) => {
   const classes = useStyles()
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
+  const isSmall = useMediaQuery({ query: '(max-width: 767px)' })
   return (
     <Box display='flex' position='fixed' zIndex='appBar'>
-      <Box className={isMobile ? classes.sidebarMobile : classes.sidebar}>
+      <Box className={isSmall ? classes.sidebarMobile : classes.sidebar}>
         <List
-          className={isMobile ? classes.sidebarListMobile : classes.sidebarList}
-          dense
+          className={isSmall ? classes.sidebarListMobile : classes.sidebarList}
         >
           <ListItem style={{ margin: 16 }}>
             <Typography variant='h6'>{props.title}</Typography>
@@ -100,8 +96,9 @@ const ListMenu: React.FunctionComponent<Props> = (props) => {
               component='a'
               onClick={item.goTo}
               selected={item.isSelected()}
+              style={{ padding: 16 }}
             >
-              {isMobile ? (
+              {isSmall ? (
                 <Box flexDirection='column' alignItems='center'>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.text} />
@@ -115,8 +112,8 @@ const ListMenu: React.FunctionComponent<Props> = (props) => {
             </ListItem>
           ))}
         </List>
-        {isMobile && <Box flexGrow={1}></Box>}
-        <Box className={isMobile ? classes.logoutMobile : classes.logout}>
+        {isSmall && <Box flexGrow={1}></Box>}
+        <Box className={isSmall ? classes.logoutMobile : classes.logout}>
           {props.actionButton}
         </Box>
       </Box>
@@ -124,4 +121,4 @@ const ListMenu: React.FunctionComponent<Props> = (props) => {
   )
 }
 
-export default withRouter(ListMenu)
+export default ListMenu

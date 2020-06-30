@@ -4,18 +4,18 @@ import 'react-solid-sidebar/dist/index.css'
 import { Button, Box, Typography } from '@material-ui/core'
 import Business from '@material-ui/icons/Business'
 import Person from '@material-ui/icons/Person'
-import { Redirect, Route } from 'react-router'
+import { Redirect, Route, withRouter } from 'react-router'
 
 const MenuA: React.FunctionComponent<{}> = () => {
   return (
-    <Box>
+    <Box component='body'>
       <Typography variant='h2'>メニューA</Typography>
     </Box>
   )
 }
 const MenuB: React.FunctionComponent<{}> = () => {
   return (
-    <Box>
+    <Box component='body'>
       <Typography variant='h2'>メニューA</Typography>
     </Box>
   )
@@ -54,4 +54,4 @@ const App = (props: any) => {
   )
 }
 
-export default App
+export default withRouter(App)
