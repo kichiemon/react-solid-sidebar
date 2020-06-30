@@ -8,22 +8,37 @@ const useStyles = makeStyles({
   root: { padding: 0, margin: 0 }
 })
 
-export interface ListMenuItem {
-  text: string
-  title: string
+export interface SolidSidebarMenuItem {
+  /**
+   * Menu's name
+   */
+  name: string
+
+  /**
+   * Menu's Icon
+   */
   icon: JSX.Element
+
+  /**
+   * This is called when user select list menu item.
+   * It's expected move page.
+   */
   goTo(): void
+
+  /**
+   * returned menu is selected
+   */
   isSelected(): boolean
 }
 
-interface SidebarLayoutProps {
+interface SolidSidebarLayoutProps {
   title: string
-  listItems: ListMenuItem[]
+  menuItems: SolidSidebarMenuItem[]
   actionButton: JSX.Element
 }
 
-const SidebarLayout: React.FunctionComponent<SidebarLayoutProps> = (
-  props: SidebarLayoutProps
+const SolidSidebarLayout: React.FunctionComponent<SolidSidebarLayoutProps> = (
+  props: SolidSidebarLayoutProps
 ) => {
   const classes = useStyles()
   return (
@@ -31,13 +46,13 @@ const SidebarLayout: React.FunctionComponent<SidebarLayoutProps> = (
       {/* サイドバー */}
       <ListMenu
         title={props.title}
-        listItems={props.listItems}
+        menuItems={props.menuItems}
         actionButton={props.actionButton}
       />
       {/* メインコンテンツ */}
-      <MainContent listItems={props.listItems} />
+      <MainContent menuItems={props.menuItems} />
     </Container>
   )
 }
 
-export default SidebarLayout
+export default SolidSidebarLayout

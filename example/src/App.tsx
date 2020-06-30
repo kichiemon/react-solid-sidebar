@@ -1,6 +1,5 @@
 import React from 'react'
-import SidebarLayout, { ListMenuItem } from 'react-solid-sidebar'
-import 'react-solid-sidebar/dist/index.css'
+import SolidSidebarLayout, { SolidSidebarMenuItem } from 'react-solid-sidebar'
 import { Button, Box, Typography } from '@material-ui/core'
 import Business from '@material-ui/icons/Business'
 import Person from '@material-ui/icons/Person'
@@ -23,17 +22,15 @@ const MenuB: React.FunctionComponent<{}> = () => {
 
 const App = (props: any) => {
   const handleClick = () => console.log('button clicked!')
-  const listItems: ListMenuItem[] = [
+  const menuItems: SolidSidebarMenuItem[] = [
     {
-      text: 'Menu A',
-      title: 'Menu A',
+      name: 'Menu A',
       icon: <Business />,
       goTo: () => props.history.push('/menu-a'),
       isSelected: () => window.location.pathname === '/menu-a'
     },
     {
-      text: 'Menu B',
-      title: 'Menu B',
+      name: 'Menu B',
       icon: <Person />,
       goTo: () => props.history.push('/menu-b'),
       isSelected: () => window.location.pathname === '/menu-b'
@@ -42,15 +39,15 @@ const App = (props: any) => {
   const ActionButton = <Button onClick={handleClick}></Button>
 
   return (
-    <SidebarLayout
+    <SolidSidebarLayout
       title='DEMO Page'
-      listItems={listItems}
+      menuItems={menuItems}
       actionButton={ActionButton}
     >
       <Route exact path='/menu-a' component={MenuA} />
       <Route exact path='/menu-b' component={MenuB} />
       <Route exact path='/' render={() => <Redirect to='menu-a' />} />
-    </SidebarLayout>
+    </SolidSidebarLayout>
   )
 }
 

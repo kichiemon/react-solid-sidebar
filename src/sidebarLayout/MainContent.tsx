@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Box } from '@material-ui/core'
 import { useMediaQuery } from 'react-responsive'
-import { ListMenuItem } from '../index'
+import { SolidSidebarMenuItem } from '../index'
 
 const drawerWidth = 220
 const drawerHeight = 60
@@ -33,7 +33,7 @@ const useStyles = makeStyles({
 })
 
 interface Props {
-  listItems: ListMenuItem[]
+  menuItems: SolidSidebarMenuItem[]
 }
 
 const MainContent: React.FunctionComponent<Props> = (props) => {
@@ -52,7 +52,7 @@ const MainContent: React.FunctionComponent<Props> = (props) => {
         className={isMobile ? classes.headerTitleMobile : classes.headerTitle}
       >
         <Typography variant='h3'>
-          {props.listItems.find((i) => i.isSelected())?.title}
+          {props.menuItems.find((i) => i.isSelected())?.name}
         </Typography>
       </Box>
       {/* ボディ */}

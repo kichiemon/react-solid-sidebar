@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import { Box, ListItemText } from '@material-ui/core'
 import { useMediaQuery } from 'react-responsive'
-import { ListMenuItem } from '../index'
+import { SolidSidebarMenuItem } from '../index'
 
 const drawerWidth = 220
 const drawerHeight = 60
@@ -73,7 +73,7 @@ const useStyles = makeStyles({
 
 interface Props {
   title: string
-  listItems: ListMenuItem[]
+  menuItems: SolidSidebarMenuItem[]
   actionButton: JSX.Element
 }
 
@@ -89,7 +89,7 @@ const ListMenu: React.FunctionComponent<Props> = (props) => {
           <ListItem style={{ margin: 16 }}>
             <Typography variant='h6'>{props.title}</Typography>
           </ListItem>
-          {props.listItems.map((item, index) => (
+          {props.menuItems.map((item, index) => (
             <ListItem
               key={index}
               button
@@ -101,12 +101,12 @@ const ListMenu: React.FunctionComponent<Props> = (props) => {
               {isSmall ? (
                 <Box flexDirection='column' alignItems='center'>
                   <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.text} />
+                  <ListItemText primary={item.name} />
                 </Box>
               ) : (
                 <Fragment>
                   <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.text} />
+                  <ListItemText primary={item.name} />
                 </Fragment>
               )}
             </ListItem>
