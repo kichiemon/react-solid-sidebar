@@ -4,6 +4,9 @@
 
 [![NPM](https://img.shields.io/npm/v/react-solid-sidebar.svg)](https://www.npmjs.com/package/react-solid-sidebar) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+![demo](https://user-images.githubusercontent.com/7911520/86148041-12207800-bb35-11ea-9148-1a8508a0c66e.gif)
+
+
 ## Install
 
 ### npm
