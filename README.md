@@ -6,7 +6,7 @@
 
 ## Demo Page
 
-https://kichiemon.github.io/menu-a
+https://kichiemon.github.io/react-solid-sidebar/
 
 ![demo](https://user-images.githubusercontent.com/7911520/86148041-12207800-bb35-11ea-9148-1a8508a0c66e.gif)
 
