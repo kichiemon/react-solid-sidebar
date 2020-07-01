@@ -4,9 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import { Box } from '@material-ui/core'
 import { useMediaQuery } from 'react-responsive'
 import { SolidSidebarMenuItem } from '../index'
-
-const drawerWidth = 220
-const drawerHeight = 60
+import { SidebarWidth, SidebarHeight } from './Variables'
 
 const useStyles = makeStyles({
   content: {
@@ -25,7 +23,7 @@ const useStyles = makeStyles({
     marginBottom: 16
   },
   headerTitleMobile: {
-    marginTop: 16 + drawerHeight,
+    marginTop: 16 + SidebarHeight,
     marginRight: 16,
     marginLeft: 16,
     marginBottom: 16
@@ -44,7 +42,7 @@ const MainContent: React.FunctionComponent<Props> = (props) => {
     <Box
       className={classes.content}
       style={{
-        marginLeft: isMobile ? 0 : drawerWidth
+        marginLeft: isMobile ? 0 : SidebarWidth
       }}
     >
       {/* ヘッダー */}

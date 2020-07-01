@@ -8,9 +8,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import { Box, ListItemText } from '@material-ui/core'
 import { useMediaQuery } from 'react-responsive'
 import { SolidSidebarMenuItem } from '../index'
-
-const drawerWidth = 220
-const drawerHeight = 60
+import { SidebarWidth, SidebarHeight } from './Variables'
 
 const useStyles = makeStyles({
   headerTitle: {
@@ -20,7 +18,7 @@ const useStyles = makeStyles({
     marginBottom: 16
   },
   headerTitleMobile: {
-    marginTop: 16 + drawerHeight,
+    marginTop: 16 + SidebarHeight,
     marginRight: 16,
     marginLeft: 16,
     marginBottom: 16
@@ -34,7 +32,7 @@ const useStyles = makeStyles({
     whiteSpace: 'nowrap',
     padding: 0,
     margin: 0,
-    width: drawerWidth,
+    width: SidebarWidth,
     height: '100vh',
     flexDirection: 'column'
   },
@@ -48,7 +46,7 @@ const useStyles = makeStyles({
     padding: 0,
     margin: 0,
     width: '100vw',
-    height: drawerHeight
+    height: SidebarHeight
   },
   sidebarList: {
     display: 'flex',
