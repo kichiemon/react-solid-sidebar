@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     marginLeft: 16,
     marginBottom: 16
   },
-  headerTitleMobile: {
+  headerTitleSmall: {
     marginTop: 16 + SidebarHeight,
     marginRight: 16,
     marginLeft: 16,
@@ -36,19 +36,17 @@ interface Props {
 
 const MainContent: React.FunctionComponent<Props> = (props) => {
   const classes = useStyles()
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
+  const isSmall = useMediaQuery({ query: '(max-width: 767px)' })
 
   return (
     <Box
       className={classes.content}
       style={{
-        marginLeft: isMobile ? 0 : SidebarWidth
+        marginLeft: isSmall ? 0 : SidebarWidth
       }}
     >
       {/* ヘッダー */}
-      <Box
-        className={isMobile ? classes.headerTitleMobile : classes.headerTitle}
-      >
+      <Box className={isSmall ? classes.headerTitleSmall : classes.headerTitle}>
         <Typography variant='h3'>
           {props.menuItems.find((i) => i.isSelected())?.name}
         </Typography>

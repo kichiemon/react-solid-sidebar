@@ -36,7 +36,13 @@ const App = (props: any) => {
       isSelected: () => window.location.pathname === '/menu-b'
     }
   ]
-  const ActionButton = <Button onClick={handleClick}></Button>
+  const ActionButton = (
+    <Button onClick={handleClick}>
+      <Typography variant='button' color='error'>
+        ログアウト
+      </Typography>
+    </Button>
+  )
 
   return (
     <SolidSidebarLayout

@@ -10,18 +10,20 @@ import { useMediaQuery } from 'react-responsive'
 import { SolidSidebarMenuItem } from '../index'
 import { SidebarWidth, SidebarHeight } from './Variables'
 
+const DefaultMargin = 16
+
 const useStyles = makeStyles({
   headerTitle: {
-    marginTop: 16,
-    marginRight: 16,
-    marginLeft: 16,
-    marginBottom: 16
+    marginTop: DefaultMargin,
+    marginRight: DefaultMargin,
+    marginLeft: DefaultMargin,
+    marginBottom: DefaultMargin
   },
-  headerTitleMobile: {
-    marginTop: 16 + SidebarHeight,
-    marginRight: 16,
-    marginLeft: 16,
-    marginBottom: 16
+  headerTitleSmall: {
+    marginTop: DefaultMargin + SidebarHeight,
+    marginRight: DefaultMargin,
+    marginLeft: DefaultMargin,
+    marginBottom: DefaultMargin
   },
   sidebar: {
     display: 'flex',
@@ -36,7 +38,7 @@ const useStyles = makeStyles({
     height: '100vh',
     flexDirection: 'column'
   },
-  sidebarMobile: {
+  sidebarSmall: {
     display: 'flex',
     overflow: 'hidden',
     flexShrink: 0,
@@ -54,18 +56,18 @@ const useStyles = makeStyles({
     margin: 0,
     padding: 0
   },
-  sidebarListMobile: {
+  sidebarListSmall: {
     display: 'flex',
     margin: 0,
     padding: 0
   },
-  logout: {
+  actionButton: {
     alignSelf: 'center',
-    marginTop: 16
+    marginTop: DefaultMargin
   },
-  logoutMobile: {
+  actionButtonSmall: {
     alignSelf: 'center',
-    marginRight: 16
+    marginRight: DefaultMargin
   }
 })
 
@@ -80,9 +82,9 @@ const ListMenu: React.FunctionComponent<Props> = (props) => {
   const isSmall = useMediaQuery({ query: '(max-width: 767px)' })
   return (
     <Box display='flex' position='fixed' zIndex='appBar'>
-      <Box className={isSmall ? classes.sidebarMobile : classes.sidebar}>
+      <Box className={isSmall ? classes.sidebarSmall : classes.sidebar}>
         <List
-          className={isSmall ? classes.sidebarListMobile : classes.sidebarList}
+          className={isSmall ? classes.sidebarListSmall : classes.sidebarList}
         >
           <ListItem style={{ margin: 16 }}>
             <Typography variant='h6'>{props.title}</Typography>
@@ -94,7 +96,7 @@ const ListMenu: React.FunctionComponent<Props> = (props) => {
               component='a'
               onClick={item.goTo}
               selected={item.isSelected()}
-              style={{ padding: 16 }}
+              style={{ padding: 8 }}
             >
               {isSmall ? (
                 <Box flexDirection='column' alignItems='center'>
@@ -111,7 +113,9 @@ const ListMenu: React.FunctionComponent<Props> = (props) => {
           ))}
         </List>
         {isSmall && <Box flexGrow={1}></Box>}
-        <Box className={isSmall ? classes.logoutMobile : classes.logout}>
+        <Box
+          className={isSmall ? classes.actionButtonSmall : classes.actionButton}
+        >
           {props.actionButton}
         </Box>
       </Box>
