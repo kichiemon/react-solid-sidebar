@@ -44,13 +44,9 @@ const SolidSidebarLayout: React.FunctionComponent<SolidSidebarLayoutProps> = (
   return (
     <Container component='main' maxWidth={false} className={classes.root}>
       {/* サイドバー */}
-      <ListMenu
-        title={props.title}
-        menuItems={props.menuItems}
-        actionButton={props.actionButton}
-      />
+      <ListMenu {...props} />
       {/* メインコンテンツ */}
-      <MainContent menuItems={props.menuItems} />
+      <MainContent {...props} />
     </Container>
   )
 }

@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import SolidSidebarLayout from '.'
 
-describe('ExampleComponent', () => {
+describe('SolidSidebarLayout', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(SolidSidebarLayout).toBeTruthy()
   })
 })
