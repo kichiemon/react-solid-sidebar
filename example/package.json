@@ -20,10 +20,11 @@
     "@types/react-dom": "link:../node_modules/@types/react-dom",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
+    "eslint-config-react-app": "6",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "link:../node_modules/react-scripts",
     "react-solid-sidebar": "link:..",
     "typescript": "link:../node_modules/typescript"

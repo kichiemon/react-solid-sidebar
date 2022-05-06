@@ -77,9 +77,9 @@ interface Props {
   actionButton: JSX.Element
 }
 
-const ListMenu: React.FunctionComponent<Props> = (props) => {
-  const classes = useStyles()
-  const isSmall = useMediaQuery({ query: '(max-width: 767px)' })
+const ListMenu: React.FC<Props> = (props) => {
+  const classes = useStyles();
+  const isSmall = useMediaQuery({ query: '(max-width: 767px)' });
   return (
     <Box display='flex' position='fixed' zIndex='appBar'>
       <Box className={isSmall ? classes.sidebarSmall : classes.sidebar}>

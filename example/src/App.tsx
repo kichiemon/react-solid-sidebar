@@ -3,7 +3,7 @@ import SolidSidebarLayout, { SolidSidebarMenuItem } from 'react-solid-sidebar'
 import { Button, Box, Typography } from '@material-ui/core'
 import Business from '@material-ui/icons/Business'
 import Person from '@material-ui/icons/Person'
-import { Redirect, Route, withRouter } from 'react-router'
+import { Navigate, Route, Routes, useLocation, useNavigate, useParams, } from "react-router-dom";
 
 const MenuA: React.FunctionComponent<{}> = () => {
   return (
@@ -18,6 +18,22 @@ const MenuB: React.FunctionComponent<{}> = () => {
       <Typography variant='h2'>メニューA</Typography>
     </Box>
   )
+}
+
+function withRouter(Component: any) {
+  function ComponentWithRouterProp(props: any) {
+      let location = useLocation();
+      let navigate = useNavigate();
+      let params = useParams();
+      return (
+          <Component
+              {...props}
+              router={{location, navigate, params}}
+          />
+      );
+  }
+
+  return ComponentWithRouterProp;
 }
 
 const App = (props: any) => {
@@ -50,9 +66,11 @@ const App = (props: any) => {
       menuItems={menuItems}
       actionButton={ActionButton}
     >
-      <Route exact path='/menu-a' component={MenuA} />
-      <Route exact path='/menu-b' component={MenuB} />
-      <Route exact path='/' render={() => <Redirect to='menu-a' />} />
+      <Routes>
+        <Route path='/menu-a' element={<MenuA />} />
+        <Route path='/menu-b' element={<MenuB />} />
+        <Route path='/' element={<Navigate to='menu-a' />} />
+      </Routes>
     </SolidSidebarLayout>
   )
 }

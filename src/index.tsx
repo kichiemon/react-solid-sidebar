@@ -35,9 +35,10 @@ interface SolidSidebarLayoutProps {
   title: string
   menuItems: SolidSidebarMenuItem[]
   actionButton: JSX.Element
+  children?: React.ReactNode
 }
 
-const SolidSidebarLayout: React.FunctionComponent<SolidSidebarLayoutProps> = (
+const SolidSidebarLayout: React.FC<SolidSidebarLayoutProps> = (
   props: SolidSidebarLayoutProps
 ) => {
   const classes = useStyles()

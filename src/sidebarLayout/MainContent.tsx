@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Box } from '@material-ui/core'
@@ -32,9 +32,10 @@ const useStyles = makeStyles({
 
 interface Props {
   menuItems: SolidSidebarMenuItem[]
+  children?: ReactNode
 }
 
-const MainContent: React.FunctionComponent<Props> = (props) => {
+const MainContent: React.FC<Props> = ({ menuItems, children }) => {
   const classes = useStyles()
   const isSmall = useMediaQuery({ query: '(max-width: 767px)' })
 
@@ -48,12 +49,12 @@ const MainContent: React.FunctionComponent<Props> = (props) => {
       {/* ヘッダー */}
       <Box className={isSmall ? classes.headerTitleSmall : classes.headerTitle}>
         <Typography variant='h3'>
-          {props.menuItems.find((i) => i.isSelected())?.name}
+          {menuItems.find((i) => i.isSelected())?.name}
         </Typography>
       </Box>
       {/* ボディ */}
       <Box flex={1} style={{ margin: 16 }}>
-        {props.children}
+        {children}
       </Box>
     </Box>
   )
