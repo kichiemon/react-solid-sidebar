@@ -36,19 +36,20 @@ function withRouter(Component: any) {
   return ComponentWithRouterProp;
 }
 
-const App = (props: any) => {
+const App = () => {
+  const navigate = useNavigate();
   const handleClick = () => console.log('button clicked!')
   const menuItems: SolidSidebarMenuItem[] = [
     {
       name: 'Menu A',
       icon: <Business />,
-      goTo: () => props.history.push('/menu-a'),
+      goTo: () => navigate('/menu-a'),
       isSelected: () => window.location.pathname === '/menu-a'
     },
     {
       name: 'Menu B',
       icon: <Person />,
-      goTo: () => props.history.push('/menu-b'),
+      goTo: () => navigate('/menu-b'),
       isSelected: () => window.location.pathname === '/menu-b'
     }
   ]
